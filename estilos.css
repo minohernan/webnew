@@ -1,3 +1,7 @@
+a
+{
+	color: #22BCE0;
+}
 body
 {
 	background: #EEEEEE;
@@ -50,8 +54,7 @@ header #avatar
 	margin: 0.5em 0.5em 0 0;
 	position: absolute;
 	right: 0;
-	top: 0;
-	
+	top: 0;	
 }
 header #avatar img
 {
@@ -79,6 +82,7 @@ nav ul
 nav ul li
 {
 	display: inline-block;
+	margin: 0 0.5em 0 0;
 }
 nav ul li a
 {
@@ -120,7 +124,7 @@ nav ul #publicar_nav a
 }
 #contenido .item .datos_item
 {
-	margin-right: 1em 1em 0 0;
+	margin: 1em 1em 0 0;
 }
 #contenido .item .datos_item .fecha_item
 {
@@ -168,8 +172,8 @@ nav ul #publicar_nav a
 	right: 3%;
 	top: 100%;	
 }
-#contenido .item  .votacion .comentarios_item,
-#contenido .item  .votacion .guardar_item
+#contenido .item .votacion .comentarios_item,
+#contenido .item .votacion .guardar_item
 {
 	float: right;
 }
