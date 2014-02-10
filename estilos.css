@@ -43,13 +43,20 @@
 }
 .icon-lapiz:before {
 	content: "\e602";
+	margin-right: .5em;
 }
 .icon-estrellita:before {
 	content: "\e603";
+	position: relative;
+	top: .1em;
 }
 a
 {
 	color: #22BCE0;
+}
+aside
+{
+	display: none;	
 }
 body
 {
@@ -193,6 +200,8 @@ nav ul #publicar_nav a
 {
 	float: left;
 	margin-right: 1em;
+	margin-left: 0em;
+	margin-top: 0em;
 }
 #contenido .item .imagen_item img
 {
@@ -225,8 +234,54 @@ nav ul #publicar_nav a
 {
 text-decoration: none;
 }
+#contenido .item .votacion .guardar_item
+{
+	color: #FFBE2C;
+}
+#contenido .item .votacion .up
+{
+	color: #22BC68;
+
+}
+#contenido .item .votacion .down
+{
+	color: #DD4F24;
+
+}
 #contenido .item .votacion .comentarios_item,
 #contenido .item .votacion .guardar_item
 {
 	float: right;
+}
+
+
+@media screen and (min-width: 800px){
+	#contenido
+	{
+		overflow: hidden;
+	}
+	#contenido .item
+	{
+		width: 49%;
+		float: left;
+	}
+	#contenido .item:nth-child(odd){
+		margin-right: 2%;
+	}
+
+@media screen and (min-width: 1000px){
+	aside
+	{
+		display: block;
+		float: right;
+		margin: 1em;
+		width: 25%;
+	}
+	aside vide
+	{
+		width: 100%;
+	}
+}
+
+	
 }
