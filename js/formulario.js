@@ -4,10 +4,11 @@ var $form = $('#formulario'),
 	$button = $('#mostrar-form'),
 	$list = $('#contenido'),
 	$post = $('.item').first();
+	$lista = $("#contenido");
 
-
-function mostrarFormulario(){
+function mostrarOcultarFormulario(){
 	$form.slideToggle();
+	$lista.slideToggle();
 	return false;
 }
 
@@ -25,10 +26,10 @@ function agregarPost(){
 	$list.prepend($clone);
 
 	$clone.fadeIn();
-
+	mostrarOcultarFormulario();
 	return false;
 }
 
 // Eventos
-$button.click( mostrarFormulario );
+$button.click( mostrarOcultarFormulario );
 $form.on('submit', agregarPost );
