@@ -28,12 +28,14 @@
 			<li><a href="#">JavaScript</a></li>
 			<li><a href="#">CSS3</a></li>
 			<li><a href="#">Django</a></li>
-			<li id="publicar_nav"><a href="#" class="icon-lapiz" id="mostrar-form">Publicar</a></li>
+			<li id="publicar_nav">
+				<a href="#" data-nombre="hernan" class="icon-lapiz">Publicar</a>
+			</li>
 		</ul>
 	</nav>
 	<form action="" id="formulario" class="formulario">
-		<input type="text" id="titulo" placeholder="Título"	required>
-		<input type="url" id="url" placeholder="Link" required>
+		<input type="text" id="titulo" placeholder="Título"	name="titulo"required>
+		<input type="url" placeholder="Link" id="link" name ="link"required>
 		<input type="submit" value="Agregar">
 	</form>
 	<aside>
@@ -249,17 +251,13 @@
 	<script src="js/jquery-git2.js"></script>
 	<script src="js/formulario.js"></script>
 	<script>
-		/*window.onload = function(){
-			console.log("Ya se disparó el evento OnLoad");
-		}
-		$(document).on('ready', function(){
-			console.log('Ya se disparó el evento DOMMContentLoaded')
-		});
 		$(function(){
-			console.log('Ya se disparó el evento DOMMContentLoaded')
-		});*/
-		$(function(){
-			
+			$('#publicar_nav a').on('click', function(tito) {
+				tito.preventDefault();
+				$(this).toggleClass('disabled');
+				var data = $(this).data();
+				$(this).data('apellido', 'gadea');
+			});
 		});
 	</script>
 </body>

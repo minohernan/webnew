@@ -1,35 +1,50 @@
-var $form = $('#formulario'),
+var $form  = $('#formulario'),
 	$titulo = $('#titulo'),
-	$url = $('#url'),
-	$button = $('#mostrar-form'),
-	$list = $('#contenido'),
-	$post = $('.item').first();
+	$url = $('#link'),
+	$primerPost = $('.item').first(),
 	$lista = $("#contenido");
 
-function mostrarOcultarFormulario(){
+
+if (localStorage.getItem('autosave')) {
+	$titulo.val(sessionStorage.getItem('titulo'));
+	$url.val(sessionStorage.getItem('url'));
+}
+
+var id = setInterval(function(){
+	sessionStorage.setItem('titulo', $titulo.val());
+	sessionStorage.setItem('url', $url.val());
+}, 1000);
+
+function mostrarOcultarFormulario(tito){
+	tito.preventDefault();
+	tito.preventDefault();
+	tito.stopPropagation();
 	$form.slideToggle();
 	$lista.slideToggle();
-	return false;
 }
 
-function agregarPost(){
-	var url = $url.val(),
-		titulo = $titulo.val(),
-		$clone = $post.clone();
+function agregarPost(e){
+	e.preventDefault();
+	e.stopPropagation();
+var titulo = $titulo.val(),
+		url = $url.val(),
+		clone = $primerPost.clone();
 
-	$clone.find('.titulo_item a')
+	clone.find('.titulo_item a')
 		.text(titulo)
-		.attr('href', url);
+		.attr('href', url)
+	
+	clone.hide()
 
-	$clone.hide();
-
-	$list.prepend($clone);
-
-	$clone.fadeIn();
+	$lista.prepend(clone)
 	mostrarOcultarFormulario();
-	return false;
+	$titulo.val('');
+	$url.val('');
+	clone.slideDown();
 }
+	
+$('nav').on('click', function(){ console.log("Soy un nav y me hicieron click");})
+$('nav ul').on('click', function(){ console.log("Soy un ul y me hicieron click");})
 
-// Eventos
-$button.click( mostrarOcultarFormulario );
-$form.on('submit', agregarPost );
+$('#publicar_nav a').click( mostrarOcultarFormulario );
+$('#formulario').on('submit', agregarPost);
